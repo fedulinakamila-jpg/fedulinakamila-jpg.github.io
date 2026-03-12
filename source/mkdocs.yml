@@ -1,0 +1,18 @@
+site_name: Портфолио Камилы
+site_author: Камила
+
+theme:
+  name: mkdocs  # Пока оставим стандартную тему, потом изменим на material
+  features:
+    - navigation.tabs
+    - navigation.sections
+
+nav:
+  - Главная: index.md
+  - Об авторе: about.md
+  - Лабораторные работы:
+    - Лабораторная работа 1: labs/lab1.md
+    - Лабораторная работа 2: labs/lab2.md
+    - Лабораторная работа 3: labs/lab3.md
+    - Лабораторная работа 4: labs/lab4.md
+    - Лабораторная работа 5: labs/lab5.md
