@@ -115,5 +115,7 @@
 5. Обработка ошибок и граничных случаев
 
 ## Ссылки на код
-- [Исходный код](https://github.com/fedulinakamila-jpg/fedulinakamila-jpg.github.io/blob/main/source/docs/labs/LR-2-main.py)
-- [Тесты](https://github.com/fedulinakamila-jpg/fedulinakamila-jpg.github.io/blob/main/source/docs/labs/test.py)
+- [Исходный код (main.py)](https://github.com/fedulinakamila-jpg/fedulinakamila-jpg.github.io/blob/main/numpy_lab/main.py)
+- [Тесты (test.py)](https://github.com/fedulinakamila-jpg/fedulinakamila-jpg.github.io/blob/main/numpy_lab/test.py)
+- [Данные (students_scores.csv)](https://github.com/fedulinakamila-jpg/fedulinakamila-jpg.github.io/blob/main/numpy_lab/data/students_scores.csv)
+- [Графики (папка plots)](https://github.com/fedulinakamila-jpg/fedulinakamila-jpg.github.io/tree/main/numpy_lab/plots)
