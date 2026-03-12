@@ -101,7 +101,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#no2" class="nav-link">Лабораторная работа №2</a>
+            <li class="nav-item" data-bs-level="1"><a href="#2-numpy" class="nav-link">Лабораторная работа 2: Основы NumPy</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#_1" class="nav-link">Цель работы</a>
               <ul class="nav flex-column">
@@ -111,11 +111,19 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">Код</a>
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">Ход выполнения</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">Вывод</a>
+            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">Тестирование</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_5" class="nav-link">Выводы</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_6" class="nav-link">Ссылки на код</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -126,22 +134,96 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="no2">Лабораторная работа №2</h1>
+<h1 id="2-numpy">Лабораторная работа 2: Основы NumPy</h1>
 <h2 id="_1">Цель работы</h2>
-<p>Изучить основы работы с Git и GitHub.</p>
+<p>Освоить основные возможности библиотеки NumPy для численных вычислений и анализа данных, научиться работать с массивами, выполнять векторные и матричные операции, проводить статистический анализ и визуализировать данные.</p>
 <h2 id="_2">Задание</h2>
-<ol>
-<li>Создать коммиты</li>
-<li>Работа с ветками</li>
-<li>Отправка изменений на удаленный репозиторий</li>
-</ol>
-<h2 id="_3">Код</h2>
-<p>```bash
-git add .
-git commit -m "Сообщение коммита"
-git push origin main</p>
-<h2 id="_4">Вывод</h2>
-<p>Освоены основные команды Git для работы с репозиторием.</p></div>
+<p>Реализовать набор функций для работы с массивами NumPy, включая:
+1. Создание и преобразование массивов
+2. Векторные операции (сложение, умножение на скаляр, скалярное произведение)
+3. Матричные операции (умножение, определитель, обратная матрица, решение СЛАУ)
+4. Статистический анализ данных
+5. Визуализация результатов</p>
+<h2 id="_3">Ход выполнения</h2>
+<h3 id="1">1. Создание и обработка массивов</h3>
+<p><strong>Функция <code>create_vector()</code></strong>:
+- Использует <code>np.arange(10)</code> для создания вектора от 0 до 9
+- Возвращает массив формы (10,)</p>
+<p><strong>Функция <code>create_matrix()</code></strong>:
+- Использует <code>np.random.rand(5, 5)</code> для создания матрицы 5x5 со случайными числами
+- Значения равномерно распределены в интервале [0, 1)</p>
+<p><strong>Функция <code>reshape_vector()</code></strong>:
+- Преобразует вектор (10,) в матрицу (2, 5) с помощью <code>reshape()</code>
+- Добавлена проверка входной формы для надежности</p>
+<p><strong>Функция <code>transpose_matrix()</code></strong>:
+- Использует <code>.T</code> для транспонирования матрицы</p>
+<h3 id="2">2. Векторные операции</h3>
+<p><strong>Функция <code>vector_add()</code></strong>:
+- Реализует поэлементное сложение через оператор <code>+</code>
+- Добавлена проверка совпадения форм</p>
+<p><strong>Функция <code>scalar_multiply()</code></strong>:
+- Умножение вектора на число через оператор <code>*</code></p>
+<p><strong>Функция <code>elementwise_multiply()</code></strong>:
+- Поэлементное умножение через оператор <code>*</code>
+- Проверка совпадения форм</p>
+<p><strong>Функция <code>dot_product()</code></strong>:
+- Скалярное произведение через <code>np.dot()</code>
+- Результат приводится к типу float</p>
+<h3 id="3">3. Матричные операции</h3>
+<p><strong>Функция <code>matrix_multiply()</code></strong>:
+- Умножение матриц через оператор <code>@</code>
+- Проверка согласованности размерностей</p>
+<p><strong>Функция <code>matrix_determinant()</code></strong>:
+- Вычисление определителя через <code>np.linalg.det()</code>
+- Проверка, что матрица квадратная</p>
+<p><strong>Функция <code>matrix_inverse()</code></strong>:
+- Вычисление обратной матрицы через <code>np.linalg.inv()</code>
+- Проверка на вырожденность (det ≠ 0)</p>
+<p><strong>Функция <code>solve_linear_system()</code></strong>:
+- Решение СЛАУ через <code>np.linalg.solve()</code>
+- Проверка корректности размерностей</p>
+<h3 id="4">4. Статистический анализ</h3>
+<p><strong>Функция <code>load_dataset()</code></strong>:
+- Загрузка CSV через pandas
+- Преобразование в numpy массив</p>
+<p><strong>Функция <code>statistical_analysis()</code></strong>:
+- Вычисление основных статистических показателей:
+  - Среднее арифметическое (<code>np.mean</code>)
+  - Медиана (<code>np.median</code>)
+  - Стандартное отклонение (<code>np.std</code>)
+  - Минимум/максимум (<code>np.min</code>/<code>np.max</code>)
+  - Перцентили (<code>np.percentile</code>)</p>
+<p><strong>Функция <code>normalize_data()</code></strong>:
+- Min-Max нормализация по формуле (x - min)/(max - min)
+- Обработка граничных случаев</p>
+<h3 id="5">5. Визуализация</h3>
+<p><strong>Функция <code>plot_histogram()</code></strong>:
+- Гистограмма распределения оценок
+- Настройка внешнего вида и сохранение</p>
+<p><strong>Функция <code>plot_heatmap()</code></strong>:
+- Тепловая карта корреляции предметов
+- Использование seaborn для красоты</p>
+<p><strong>Функция <code>plot_line()</code></strong>:
+- График зависимости оценок от номера студента
+- Линейный график с маркерами</p>
+<h2 id="_4">Тестирование</h2>
+<p>Все функции проходят тесты из файла <code>test.py</code>. Тесты проверяют:
+- Корректность возвращаемых типов
+- Соответствие форм массивов
+- Правильность вычислений
+- Обработку граничных случаев</p>
+<h2 id="_5">Выводы</h2>
+<p>В ходе выполнения лабораторной работы были получены следующие навыки:
+1. Создание и манипуляция массивами NumPy
+2. Выполнение векторных и матричных операций
+3. Проведение статистического анализа данных
+4. Визуализация результатов с помощью matplotlib и seaborn
+5. Обработка ошибок и граничных случаев</p>
+<h2 id="_6">Ссылки на код</h2>
+<ul>
+<li><a href="https://github.com/fedulinakamila-jpg/fedulinakamila-jpg.github.io/blob/main/source/docs/labs/LR-2-main.py">Исходный код</a></li>
+<li><a href="https://github.com/fedulinakamila-jpg/fedulinakamila-jpg.github.io/blob/main/source/docs/labs/test.py">Тесты</a></li>
+</ul></div>
             </div>
         </div>
 
