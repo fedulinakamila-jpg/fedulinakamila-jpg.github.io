@@ -8,7 +8,7 @@
         <meta name="author" content="Камила">
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Лабораторная работа №4 - Портфолио Камилы</title>
+        <title>Лабораторная работа 4 - Портфолио Камилы</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@
                                 <a href="../../about/" class="nav-link">Об авторе</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Лабораторные работы</a>
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Лабораторные работы</a>
                                 <ul class="dropdown-menu">
                                     
 <li>
@@ -57,7 +57,7 @@
 </li>
                                     
 <li>
-    <a href="../LR-4/" class="dropdown-item">Лабораторная работа 4</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Лабораторная работа 4</a>
 </li>
                                     
 <li>
@@ -73,6 +73,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../lab3/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../lab5/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -91,21 +101,21 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#no4" class="nav-link">Лабораторная работа №4</a>
+            <li class="nav-item" data-bs-level="1"><a href="#no4-scikit-learn" class="nav-link">Лабораторная работа №4: Классификация с применением Scikit-Learn</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#_1" class="nav-link">Цель работы</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">Задание</a>
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">Ход выполнения</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">Код</a>
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">Выводы</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">Вывод</a>
+            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">Ссылки</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -116,24 +126,121 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="no4">Лабораторная работа №4</h1>
+<h1 id="no4-scikit-learn">Лабораторная работа №4: Классификация с применением Scikit-Learn</h1>
 <h2 id="_1">Цель работы</h2>
-<p>Создание структуры документации и навигации.</p>
-<h2 id="_2">Задание</h2>
+<p>Построить модель классификации для предсказания кредитного дефолта на основе данных Kaggle "Give Me Some Credit", сравнить различные алгоритмы и выбрать наилучший.</p>
+<h2 id="_2">Ход выполнения</h2>
+<h3 id="1">1. Загрузка и анализ данных</h3>
+<ul>
+<li>Датасет содержит 50000 наблюдений и 11 признаков</li>
+<li>Целевая переменная: <code>SeriousDlqin2yrs</code> (есть ли просрочка 90+ дней)</li>
+<li>Выявлен сильный дисбаланс классов: ~93% хороших заемщиков, ~7% дефолтных</li>
+</ul>
+<h3 id="2">2. Предобработка данных</h3>
+<ul>
+<li>Заполнение пропусков средними значениями</li>
+<li>Масштабирование признаков для SVM и KNN</li>
+<li>Разделение на обучающую (50000) и тестовую (37500) выборки</li>
+</ul>
+<h3 id="3">3. Результаты обучения моделей</h3>
+<table>
+<thead>
+<tr>
+<th>Модель</th>
+<th>Accuracy</th>
+<th>ROC-AUC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Logistic Regression</td>
+<td>0.9325</td>
+<td>0.6618</td>
+</tr>
+<tr>
+<td>Random Forest</td>
+<td>0.9338</td>
+<td>0.8414</td>
+</tr>
+<tr>
+<td>SVM</td>
+<td>0.9337</td>
+<td>0.6610</td>
+</tr>
+<tr>
+<td>KNN</td>
+<td>0.9263</td>
+<td>0.6730</td>
+</tr>
+<tr>
+<td><strong>Gradient Boosting</strong></td>
+<td><strong>0.9357</strong></td>
+<td><strong>0.8645</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Вывод:</strong> Gradient Boosting показал наилучший результат (ROC-AUC = 0.8645)</p>
+<h3 id="4">4. Анализ современных алгоритмов классификации</h3>
+<p>На основе анализа Kaggle-соревнований и научных публикаций:</p>
+<table>
+<thead>
+<tr>
+<th>Алгоритм</th>
+<th>Особенности</th>
+<th>Применение в скоринге</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LightGBM/XGBoost</strong></td>
+<td>Градиентный бустинг, высокая скорость</td>
+<td>Стандарт индустрии</td>
+</tr>
+<tr>
+<td><strong>CatBoost</strong></td>
+<td>Работа с категориальными признаками</td>
+<td>Хорош для банковских данных</td>
+</tr>
+<tr>
+<td><strong>Stacking Ensemble</strong></td>
+<td>Комбинация нескольких моделей</td>
+<td>Топ-решения на Kaggle</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-">5. Интеграция модели с веб-сервисом</h3>
+<p><strong>Пошаговый алгоритм деплоя модели:</strong></p>
 <ol>
-<li>Настроить nav в mkdocs.yml</li>
-<li>Создать иерархию страниц</li>
-<li>Организовать разделы</li>
+<li>
+<p><strong>Сохранение обученной модели</strong> с помощью библиотеки <code>joblib</code> или <code>pickle</code></p>
+</li>
+<li>
+<p><strong>Создание API на FastAPI</strong> с эндпоинтом <code>/predict</code></p>
+</li>
+<li>
+<p><strong>Предобработка входных данных</strong> (масштабирование, заполнение пропусков)</p>
+</li>
+<li>
+<p><strong>Возвращение предсказания</strong> в формате JSON</p>
+</li>
+<li>
+<p><strong>Контейнеризация с Docker</strong> для воспроизводимости</p>
+</li>
+<li>
+<p><strong>Деплой в облако</strong> (AWS, GCP, Heroku)</p>
+</li>
 </ol>
-<h2 id="_3">Код</h2>
-<p>```yaml
-nav:
-  - Главная: index.md
-  - Об авторе: about.md
-  - Лабораторные работы:
-    - Лаб 1: labs/lab1.md</p>
-<h2 id="_4">Вывод</h2>
-<p>Создана удобная и логичная структура навигации по сайту.</p></div>
+<h2 id="_3">Выводы</h2>
+<ul>
+<li>Градиентный бустинг — наиболее эффективный метод для кредитного скоринга</li>
+<li>ROC-AUC — более информативная метрика при работе с несбалансированными данными</li>
+<li>Для реального внедрения требуется дополнительная настройка порога классификации</li>
+</ul>
+<h2 id="_4">Ссылки</h2>
+<ul>
+<li><a href="https://colab.research.google.com/drive/1jMywhVKaGbtmDZxE-yoj_m4LKTOMMr6-#scrollTo=-LC_ITAO1hih">Ноутбук в Colab</a></li>
+<li><a href="https://www.kaggle.com/c/GiveMeSomeCredit">Датасет на Kaggle</a></li>
+</ul></div>
             </div>
         </div>
 
